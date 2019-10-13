@@ -1,0 +1,23 @@
+[jasperserver.proxy]
+port= 7443
+contextPath="/api"
+serviceEndpoint="http://localhost:8080/jasperserver/rest_v2"
+keystorePath="./ballerinaKeystore.p12"
+keystorePassword="ballerina"
+authorizationEnabled=false
+principalParameter="pp"
+subjectClaim="sub"
+rolesClaim="groups"
+
+[oauth2_xacml]
+endpoint="https://localhost:9443"
+username="@encrypted:{+HS3IPMC5RjPiipvk4pXi7dEYosFtIK7RG3iD4i6UAw=}"
+password="@encrypted:{ha6s2HX8Vn3efsKlCWZ6nlD932F2qNw9hTbFS8EOjSM=}"
+introspectPath="/oauth2/introspect"
+userInfoPath="/oauth2/userinfo?schema=profile"
+authorizationPath="/api/identity/entitlement/decision/pdp"
+truststorePath="./ballerinaTruststore.p12"
+truststorePassword="ballerina"    
+
+[b7a.log]
+level="DEBUG"

@@ -1,0 +1,10 @@
+[project]
+org-name = "pz8"
+version = "1.0.0"
+authors = ["Giuseppe Amato"]
+repository = "https://github.com/giuseppeamato/jasperserver-oauth2-proxy"
+keywords = ["ballerina", "oauth2", "xacml", "proxy", "connector", "jasperserver"]
+license = ["Apache-2.0"]
+
+[dependencies]
+"pz8/oauth2_xacml" = "1.0.0"
