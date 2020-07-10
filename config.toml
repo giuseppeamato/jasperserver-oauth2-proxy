@@ -1,10 +1,11 @@
 [jasperserver.proxy]
 port= 7443
 contextPath="/api"
-serviceEndpoint="http://localhost:8080/jasperserver/rest_v2"
+serviceEndpoint="http://localhost:8090/jasperserver/rest_v2"
+allowOrigins="*"
 keystorePath="./ballerinaKeystore.p12"
 keystorePassword="ballerina"
-authorizationEnabled=false
+authorizationEnabled=true
 principalParameter="pp"
 subjectClaim="sub"
 rolesClaim="groups"
@@ -17,7 +18,24 @@ introspectPath="/oauth2/introspect"
 userInfoPath="/oauth2/userinfo?schema=profile"
 authorizationPath="/api/identity/entitlement/decision/pdp"
 truststorePath="./ballerinaTruststore.p12"
-truststorePassword="ballerina"    
+truststorePassword="ballerina"
+[oauth2_xacml.authenticationCache]
+size=100
+evictionFactor=0.2
+maxAgeInSeconds=300
+cleanupIntervalInSeconds=60
+[oauth2_xacml.authorizationCache]
+size=1000
+evictionFactor=0.1
+maxAgeInSeconds=300
+cleanupIntervalInSeconds=60
+[oauth2_xacml.circuitBreaker]
+timeWindowInMillis=10000
+bucketSizeInMillis=2000
+requestVolumeThreshold=0
+failureThreshold=0.2
+resetTimeInMillis=10000
+statusCodes=[400, 404, 500]
 
 [b7a.log]
 level="DEBUG"
