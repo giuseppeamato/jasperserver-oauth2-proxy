@@ -9,7 +9,7 @@ This component does not perform token generation, but simply checks the validity
 
 The key idea is to configure Jasper Server with token based authentication and protect it behind this proxy, where the oauth2 access token is used to check authentication/authorizations and to obtain all the info in order to generate the Jasper Server preauth token.
 
-<IMAGE>
+![Interaction flow](./docs/interactionflow.png)
 
 ## Usage
 
