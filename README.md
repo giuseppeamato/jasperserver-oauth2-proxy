@@ -13,15 +13,10 @@ The key idea is to configure Jasper Server with token based authentication and p
 
 ## Usage
 
-You can pull the module from Ballerina Central using the command:
-```ballerina
-$ ballerina pull pz8/jasperserver_oauth2_proxy
-```
-
-Then you have to properly configure the `config.toml` file and launch the build command, after that you can start the module:
+You can pull the binary from GitHub releases, then you have to properly configure the `config.toml` file and prepare the keystores, after that you can start the microservice gateway:
 
 ```ballerina
-$ ballerina run .\target\bin\jasperserver_oauth2_proxy.jar --b7a.config.file=.\config.toml 
+$ ballerina run jasperserver_oauth2_proxy.jar --b7a.config.file=.\config.toml 
 ```
 
 # Configuration
@@ -67,7 +62,7 @@ and in `[oauth2_xacml]` block:
 In the provided example configuration file are shown the identity server credentials `admin`/`admin`, those strings are encrypted with the `encrypt` ballerina command using the secret word "`ballerina`", so at the startup the module will prompt you to insert that value; in alternative you can provide a `secret.txt` file containing the secret and referencing it in the command:
 
 ```ballerina
-$ ballerina run .\target\bin\jasperserver_oauth2_proxy.jar --b7a.config.file=.\config.toml --b7a.config.secret=.\secret.txt 
+$ ballerina run jasperserver_oauth2_proxy.jar --b7a.config.file=.\config.toml --b7a.config.secret=.\secret.txt 
 ```
 
 ## Jasper Server 
